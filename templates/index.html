@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+.text-white{
+    color:white
+ }
+.column {
+  float: left;
+  margin:5px;
+  padding:10px;
+  background-color: white;
+  height:500px;
+}
+nav ul li{
+  display: inline-block;
+  padding:10px;
+  font-size:18px;
+}
+.navbar a{
+  text-decoration: none;
+  }
+.navbar ul li a:hover{
+  color: green;
+}
+img{
+height:300px;
+
+}
+column:hover{
+transform:translateY(-10px);
+}
+</style>
+<body style="background-color:#FFA4B6">
+<nav class="navbar" style="background-color:#011318">
+    <h4 style="margin-left: 180px; font-size: 33px;" class="navbar-brand text-warning">My Book Recommender</h4>
+    <ul style="margin-right: 90px">
+        <li><a href="/" class="text-white">Home</a></li>
+        <li><a href="/recommend" class="text-white">Recommend</a></li>
+       
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="card-body text-white" style="font-size:50px">Top 50 books</h1>
+        </div>
+
+        {%for i in range(book_name|length)%}
+            <div class="col-md-3" style="margin-top:30px;">
+                <div class="card">
+                    <div class="card-body column">
+                        <img class="card-img-top" src="{{image[i]}}">
+                        <h5>Name: {{book_name[i]}}</h5>
+                        <h6>Author: {{author[i]}}</h6>
+                        <h6>Votes: {{votes[i]}}</h6>
+                        <h6>Rating: {{rating[i]}}</h6>
+                    
+                    </div>
+                </div>
+            </div>
+        {%endfor%}
+
+
+    </div>
+</div>
+</body>
